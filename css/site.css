@@ -21,10 +21,7 @@ body {
 }
 
 header {
-  background-color: rgba(255, 255, 255, 0.8);
   padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-bottom: 2px solid #add8e6;
 }
 
 nav ul {
@@ -39,16 +36,38 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 12px 25px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  margin: 0 10px;
 }
 
 nav ul li a:hover {
-  background-color: #ffd1dc;
-  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton Accueil - Même couleur que Personnages */
+nav ul li a[href="index.html"] {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+}
+
+nav ul li a[href="index.html"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
+}
+
+/* Bouton Personnages - Magenta/Violet plus foncé */
+nav ul li a[href="personnages.html"] {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+}
+
+nav ul li a[href="personnages.html"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
 
 .button-image {
@@ -164,9 +183,155 @@ nav ul li a:hover {
 .mt-20 { margin-top: 20px; }
 .mb-20 { margin-bottom: 20px; }
 
+/* Container pour les boutons sociaux */
+.social-buttons-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  z-index: 1000;
+  padding-left: 20px;
+  width: 180px;
+}
+
+/* Styles pour les boutons de réseaux sociaux */
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 15px 15px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  width: 160px;
+  text-align: left;
+  box-sizing: border-box;
+  min-height: 60px;
+  flex-shrink: 0;
+}
+
+.social-button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.social-button span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.social-button small {
+  display: none;
+}
+
+/* Discord - Bleu foncé */
+.social-button.discord {
+  border-color: transparent;
+  background-color: rgba(88, 101, 242, 0.3);
+}
+
+.social-button.discord:hover {
+  border-color: #5865F2;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+}
+
+/* YouTube - Rouge */
+.social-button.youtube {
+  border-color: transparent;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.social-button.youtube:hover {
+  border-color: #FF0000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Twitch - Violet/Bleu */
+.social-button.twitch {
+  border-color: transparent;
+  background-color: rgba(145, 70, 255, 0.3);
+}
+
+.social-button.twitch:hover {
+  border-color: #9146FF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(145, 70, 255, 0.4);
+}
+
+/* Kick - Vert */
+.social-button.kick {
+  border-color: transparent;
+  background-color: rgba(83, 252, 24, 0.3);
+}
+
+.social-button.kick:hover {
+  border-color: #53FC18;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(83, 252, 24, 0.4);
+}
+
+/* TikTok - Noir/Rose */
+.social-button.tiktok {
+  border-color: transparent;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.social-button.tiktok:hover {
+  border-color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo Discord image */
+.discord-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+/* Suppression de l'ancien logo CSS Discord */
+
 @media (max-width: 768px) {
   .hero { padding: 24px 16px; }
   .hero h1 { font-size: 2em; }
+  .social-buttons-container {
+    padding-left: 15px;
+    width: 160px;
+  }
+  .social-button {
+    width: 140px;
+    padding: 12px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-buttons-container {
+    padding-left: 10px;
+    width: 140px;
+  }
+  .social-button {
+    width: 120px;
+    padding: 10px 10px;
+  }
+  .social-button span {
+    font-size: 0.9em;
+  }
 }
 
 
