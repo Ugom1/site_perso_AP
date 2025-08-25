@@ -1,5 +1,6 @@
 html {
   height: 100%; /* Assure que le HTML prend toute la hauteur */
+  scrollbar-gutter: stable; /* Évite le décalage du header entre pages */
 }
 
 body {

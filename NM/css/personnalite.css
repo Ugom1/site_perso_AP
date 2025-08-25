@@ -1,3 +1,8 @@
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
 body {
   margin: 0;
   min-height: 100vh; /* s'assure que ça couvre toujours la hauteur de l'écran */
