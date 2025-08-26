@@ -85,6 +85,7 @@ h1 {
   .story-section {
     flex-direction: row;
     text-align: left;
+    align-items: center; /* centre verticalement l'image et le texte */
   }
   .story-section.reverse {
     flex-direction: row-reverse;
