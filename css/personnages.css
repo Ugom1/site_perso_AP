@@ -348,6 +348,10 @@ nav ul li a[href="personnages.html"]:hover {
   display: none;
 }
 
+body.with-social-buttons nav ul {
+  transform: translateX(-10vw);
+}
+
 @media (max-width: 768px) {
   .social-buttons-container {
     display: none;
@@ -546,26 +550,4 @@ nav ul li a[href="personnages.html"]:hover {
     max-width: 90vw;
     width: 100%;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  iframe {
-    width: 100%;
-    height: auto;
-  }
-
-  .social-links {
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-
-body.with-social-buttons nav ul {
-  transform: translateX(-10vw);
 }
