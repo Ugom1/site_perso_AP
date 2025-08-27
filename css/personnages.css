@@ -360,9 +360,10 @@ nav ul li a[href="personnages.html"]:hover {
   }
 
   body.with-social-buttons nav ul {
-    transform: translateX(0);
+    position: static;
+    left: 0;
+    transform: none;
     justify-content: center;
-    padding: 0 4vw;
   }
 
   nav ul {
