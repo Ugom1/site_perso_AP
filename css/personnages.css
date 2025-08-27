@@ -560,7 +560,8 @@ body.with-social-buttons nav ul {
   }
 
   nav ul li a {
-    padding: 1.5vh 3vw;
+    padding: 1.5vh 4vw;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin: 0 0.5vw;
   }
 }
