@@ -359,6 +359,23 @@ nav ul li a[href="personnages.html"]:hover {
     padding: 1vh 2vw;
   }
 
+  body.with-social-buttons nav ul {
+    transform: translateX(0);
+    justify-content: center;
+    padding: 0 4vw;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 3vw;
+  }
+
+  nav ul li a {
+    padding: 1.5vh 4vw;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0 0.5vw;
+  }
+
   .hero {
     padding: 3vh 4vw;
     min-height: 20vh;
@@ -545,23 +562,5 @@ nav ul li a[href="personnages.html"]:hover {
   .social-links {
     width: 100%;
     margin: 10px 0;
-  }
-}
-
-body.with-social-buttons nav ul {
-  transform: translateX(-10vw);
-}
-
-@media (max-width: 768px) {
-  body.with-social-buttons nav ul {
-    transform: translateX(0);
-    justify-content: center;
-    padding: 0 4vw;
-  }
-
-  nav ul li a {
-    padding: 1.5vh 4vw;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    margin: 0 0.5vw;
   }
 }
