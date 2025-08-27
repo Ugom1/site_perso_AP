@@ -360,6 +360,24 @@ nav ul li a[href="personnages.html"]:hover {
     padding: 1vh 2vw;
   }
 
+  body.with-social-buttons nav ul {
+    position: static;
+    left: 0;
+    transform: none;
+    justify-content: center;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 3vw;
+  }
+
+  nav ul li a {
+    padding: 1.5vh 4vw;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0 0.5vw;
+  }
+
   .hero {
     padding: 2vh 3vw;
     min-height: 22vh;
