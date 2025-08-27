@@ -61,7 +61,6 @@ nav ul li a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-
 nav ul li a[href="index.html"] {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
 }
@@ -71,7 +70,6 @@ nav ul li a[href="index.html"]:hover {
   box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
 
-/* Bouton Personnages - Magenta/Violet plus foncé */
 nav ul li a[href="personnages.html"] {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
 }
@@ -225,10 +223,10 @@ nav ul li a[href="personnages.html"]:hover {
   font-weight: bold;
 }
 
-
 .mt-20 {
   margin-top: 20px;
 }
+
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -367,16 +365,23 @@ nav ul li a[href="personnages.html"]:hover {
     min-height: 22vh;
     max-width: 90vw;
     margin: 1vh auto;
+    position: static;
+    left: auto;
+    transform: none;
   }
+
   .hero h1 {
     font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
+
   .hero h2 {
     font-size: clamp(1.1rem, 3.5vw, 1.6rem);
   }
+
   .hero p {
     max-width: 80vw;
   }
+
   .video-container {
     max-width: 90vw !important;
     width: 90% !important;
@@ -385,26 +390,28 @@ nav ul li a[href="personnages.html"]:hover {
   .mobile-social-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    padding: 20px;
+    gap: 12px;
+    margin: 25px auto 20px;
+    padding: 15px;
     flex-wrap: wrap;
+    max-width: 320px;
   }
 
   .mobile-social-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     text-decoration: none;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   }
 
   .mobile-social-button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
   }
 
   .mobile-social-button.discord {
@@ -429,8 +436,8 @@ nav ul li a[href="personnages.html"]:hover {
 
   .mobile-social-button img,
   .mobile-social-button svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     object-fit: contain;
   }
 }
@@ -451,19 +458,43 @@ nav ul li a[href="personnages.html"]:hover {
     padding: 2vh 3vw;
     max-width: 90vw;
     margin: 1vh auto;
+    position: static;
+    left: auto;
+    transform: none;
   }
+
   .hero h1 {
     font-size: clamp(1.6rem, 5vw, 2.2rem);
   }
+
   .hero h2 {
     font-size: clamp(1rem, 3vw, 1.4rem);
   }
+
   .hero p {
     max-width: 85vw;
   }
+
   .video-container {
     max-width: 95vw !important;
     width: 95% !important;
+  }
+
+  .mobile-social-buttons {
+    gap: 10px;
+    margin: 20px auto 15px;
+    padding: 12px;
+  }
+
+  .mobile-social-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mobile-social-button img,
+  .mobile-social-button svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -480,6 +511,9 @@ nav ul li a[href="personnages.html"]:hover {
   .hero {
     min-height: 25vh;
     max-width: 90vw;
+    position: static;
+    left: auto;
+    transform: none;
   }
 }
 
