@@ -20,9 +20,8 @@ body {
   align-items: center;
 }
 
-/* Marge spéciale uniquement pour les pages avec boutons sociaux */
 body.with-social-buttons .container {
-  margin-left: 20vw; /* Ajout d'une marge pour éviter le chevauchement avec les boutons sociaux */
+  margin-left: 20vw;
 }
 
 header {
@@ -56,7 +55,7 @@ nav ul li a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Bouton Accueil - Même couleur que Personnages */
+
 nav ul li a[href="index.html"] {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
 }
@@ -66,7 +65,6 @@ nav ul li a[href="index.html"]:hover {
   box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
 
-/* Bouton Personnages - Magenta/Violet plus foncé */
 nav ul li a[href="personnages.html"] {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
 }
@@ -115,10 +113,8 @@ nav ul li a[href="personnages.html"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 0; /* Reset de la marge pour le hero */
-  max-width: 45vw;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero h1 {
@@ -146,7 +142,6 @@ nav ul li a[href="personnages.html"]:hover {
   line-height: 1.3;
 }
 
-/* Styles pour la vidéo YouTube */
 .video-container {
   max-width: 70vw !important;
   width: 70% !important;
@@ -219,11 +214,9 @@ nav ul li a[href="personnages.html"]:hover {
   font-weight: bold;
 }
 
-/* Utility */
 .mt-20 { margin-top: 20px; }
 .mb-20 { margin-bottom: 20px; }
 
-/* Container pour les boutons sociaux */
 .social-buttons-container {
   position: fixed;
   left: 0;
@@ -236,10 +229,9 @@ nav ul li a[href="personnages.html"]:hover {
   z-index: 1000;
   padding-left: 2vw;
   width: 18vw;
-  background: linear-gradient(to right, rgba(0,0,0,0.1), transparent); /* Ajout d'un fond subtil */
+  background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
 }
 
-/* Styles pour les boutons de réseaux sociaux */
 .social-button {
   display: flex;
   align-items: center;
@@ -277,7 +269,6 @@ nav ul li a[href="personnages.html"]:hover {
   display: none;
 }
 
-/* Discord - Bleu foncé */
 .social-button.discord {
   border-color: transparent;
   background-color: rgba(88, 101, 242, 0.3);
@@ -289,7 +280,6 @@ nav ul li a[href="personnages.html"]:hover {
   box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
 }
 
-/* YouTube - Rouge */
 .social-button.youtube {
   border-color: transparent;
   background-color: rgba(255, 0, 0, 0.3);
@@ -301,7 +291,6 @@ nav ul li a[href="personnages.html"]:hover {
   box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
 }
 
-/* Twitch - Violet/Bleu */
 .social-button.twitch {
   border-color: transparent;
   background-color: rgba(145, 70, 255, 0.3);
@@ -313,7 +302,6 @@ nav ul li a[href="personnages.html"]:hover {
   box-shadow: 0 8px 20px rgba(145, 70, 255, 0.4);
 }
 
-/* Kick - Vert */
 .social-button.kick {
   border-color: transparent;
   background-color: rgba(83, 252, 24, 0.3);
@@ -325,7 +313,6 @@ nav ul li a[href="personnages.html"]:hover {
   box-shadow: 0 8px 20px rgba(83, 252, 24, 0.4);
 }
 
-/* TikTok - Noir/Rose */
 .social-button.tiktok {
   border-color: transparent;
   background-color: rgba(0, 0, 0, 0.3);
@@ -337,7 +324,6 @@ nav ul li a[href="personnages.html"]:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Logo Discord image */
 .discord-icon {
   width: 3.6vh;
   height: 3.6vh;
@@ -370,7 +356,7 @@ nav ul li a[href="personnages.html"]:hover {
   body.with-social-buttons .container {
     max-width: 95vw;
     padding: 1vh 1vw;
-    margin-left: 18vw; /* Ajustement de la marge pour les écrans moyens */
+    margin-left: 18vw;
   }
 }
 
@@ -397,7 +383,7 @@ nav ul li a[href="personnages.html"]:hover {
   body.with-social-buttons .container {
     max-width: 98vw;
     padding: 0.5vh 0.5vw;
-    margin-left: 16vw; /* Ajustement de la marge pour les petits écrans */
+    margin-left: 16vw;
   }
 }
 
@@ -412,6 +398,6 @@ nav ul li a[href="personnages.html"]:hover {
     min-height: 35vh;
   }
   body.with-social-buttons .container {
-    margin-left: 22vw; /* Ajustement de la marge pour les très petits écrans */
+    margin-left: 22vw;
   }
 }
