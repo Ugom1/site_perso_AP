@@ -20,9 +20,14 @@ body {
   align-items: center;
 }
 
-/* Marge spéciale uniquement pour les pages avec boutons sociaux */
 body.with-social-buttons .container {
-  margin-left: 20vw; /* Ajout d'une marge pour éviter le chevauchement avec les boutons sociaux */
+  margin-left: 20vw;
+}
+
+body.with-social-buttons nav ul {
+  position: relative;
+  left: -10vw;
+  transform: translateX(0);
 }
 
 header {
@@ -56,7 +61,7 @@ nav ul li a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Bouton Accueil - Même couleur que Personnages */
+
 nav ul li a[href="index.html"] {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
 }
@@ -115,10 +120,12 @@ nav ul li a[href="personnages.html"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 0; /* Reset de la marge pour le hero */
-  max-width: 45vw;
   margin-left: auto;
   margin-right: auto;
+  max-width: 45vw;
+  position: relative;
+  left: 20%;
+  transform: translateX(-50%);
 }
 
 .hero h1 {
@@ -218,7 +225,7 @@ nav ul li a[href="personnages.html"]:hover {
   font-weight: bold;
 }
 
-/* Utility */
+
 .mt-20 {
   margin-top: 20px;
 }
@@ -238,7 +245,7 @@ nav ul li a[href="personnages.html"]:hover {
   z-index: 1000;
   padding-left: 2vw;
   width: 18vw;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent); /* Ajout d'un fond subtil */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
 }
 
 .social-button {
@@ -350,7 +357,7 @@ nav ul li a[href="personnages.html"]:hover {
   }
 
   body.with-social-buttons .container {
-    margin-left: 0; /* Remove left margin on mobile */
+    margin-left: 0;
     max-width: 95vw;
     padding: 1vh 2vw;
   }
@@ -358,7 +365,7 @@ nav ul li a[href="personnages.html"]:hover {
   .hero {
     padding: 2vh 3vw;
     min-height: 22vh;
-    max-width: 90vw; /* Increase width on mobile */
+    max-width: 90vw;
     margin: 1vh auto;
   }
   .hero h1 {
@@ -368,7 +375,7 @@ nav ul li a[href="personnages.html"]:hover {
     font-size: clamp(1.1rem, 3.5vw, 1.6rem);
   }
   .hero p {
-    max-width: 80vw; /* Increase text width on mobile */
+    max-width: 80vw;
   }
   .video-container {
     max-width: 90vw !important;
