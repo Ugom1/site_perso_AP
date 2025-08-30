@@ -1,9 +1,20 @@
+@font-face {
+  font-family: 'Orbitron Police';
+  src: url('/orbitron/Orbitron-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Oxygen Police';
+  src: url('/oxygen-mono/OxygenMono-Regular.ttf') format('truetype');
+}
+
 html {
   height: 100%;
   scrollbar-gutter: stable;
 }
 
 body {
+  font-family: 'Oxygen Police', sans-serif;
   margin: 0;
   min-height: 100vh;
   background: linear-gradient(to bottom, #cde4f5, #f8d7e3);
@@ -231,6 +242,8 @@ nav ul li a[href="personnages.html"]:hover {
 }
 
 .social-buttons-container {
+  font-family: 'Orbitron Police', sans-serif;
+
   position: fixed;
   left: 0;
   top: 0;
