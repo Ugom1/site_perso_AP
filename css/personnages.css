@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'Orbitron Police';
-  src: url('/orbitron/Orbitron-Regular.ttf') format('truetype');
+  font-family: "Orbitron Police";
+  src: url("/orbitron/Orbitron-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Oxygen Police';
-  src: url('/oxygen-mono/OxygenMono-Regular.ttf') format('truetype');
+  font-family: "Oxygen Police";
+  src: url("/oxygen-mono/OxygenMono-Regular.ttf") format("truetype");
 }
 
 html {
@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  font-family: 'Oxygen Police', sans-serif;
+  font-family: "Oxygen Police", sans-serif;
   margin: 0;
   min-height: 100vh;
   background: linear-gradient(to bottom, #cde4f5, #f8d7e3);
@@ -97,6 +97,15 @@ nav ul li but:hover {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
+}
+
+.button-nav {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+}
+
+.button-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
 
 .button-image img {
@@ -242,7 +251,7 @@ nav ul li but:hover {
 }
 
 .social-buttons-container {
-  font-family: 'Orbitron Police', sans-serif;
+  font-family: "Orbitron Police", sans-serif;
 
   position: fixed;
   left: 0;
