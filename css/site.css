@@ -67,24 +67,27 @@ nav ul li a {
   font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
-.button_nav {
-  background: linear-gradient(135deg, #9c27b0, #6a1b9a) !important;
-  color: white !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  padding: 1.2vh 2.5vw !important;
-  border-radius: 1.5vh !important;
-  transition: all 0.3s ease !important;
-  border: 2px solid transparent !important;
-  margin: 0 1vw !important;
-  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-  display: inline-block !important;
+nav ul li a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.button_nav:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4) !important;
-  background: linear-gradient(135deg, #8e24aa, #5e35b1) !important;
+nav ul li a[href="/"] {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+}
+
+nav ul li a[href="/"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
+}
+
+nav ul li a[href="/personnages"] {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+}
+
+nav ul li a[href="/personnages"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
 
 .button-image {
