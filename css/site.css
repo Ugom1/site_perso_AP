@@ -81,11 +81,11 @@ nav ul li a[href="/"]:hover {
   box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
 
-nav ul li a[href="personnages"] {
+nav ul li a[href="/personnages"] {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
 }
 
-nav ul li a[href="personnages"]:hover {
+nav ul li a[href="/personnages"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
 }
