@@ -38,7 +38,7 @@ nav ul li a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 nav ul li a:hover {
-  background-color: #ffd1dc; /* Light Pink */
+  background-color: #ffd1dc;
   color: #000;
 }
 h1 {
@@ -57,20 +57,20 @@ h1 {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  border: 2px solid #ffd1dc; /* Light Pink */
+  border: 2px solid #ffd1dc;
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .gallery-item:hover {
   transform: translateY(-5px);
-  border-color: #add8e6; /* Light Blue */
+  border-color: #add8e6;
 }
 .gallery-item-image-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 100%; /* Rapport 1:1 (carré) */
+  padding-bottom: 100%;
   overflow: hidden;
-  border-bottom: 2px solid #add8e6; /* Garde la bordure sous l'image */
+  border-bottom: 2px solid #add8e6;
 }
 .gallery-item img {
   position: absolute;
@@ -79,7 +79,7 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* Ajouté pour centrer le recadrage sur le haut de l'image */
+  object-position: top;
   display: block;
 }
 .gallery-item .title {
@@ -91,13 +91,63 @@ h1 {
 }
 main {
   flex-grow: 1;
-  /* Pas de background-color ici pour laisser le dégradé du body apparaître */
 }
 footer {
   text-align: center;
   padding: 20px;
-  /* margin-top: 50px; */
   background-color: rgba(255, 255, 255, 0.8);
   border-top: 2px solid #add8e6;
   color: #555;
 }
+
+.lb-target {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  padding: 24px;
+}
+.lb-target:target { display: flex; }
+
+.lb-target img {
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.lb-close {
+  position: fixed;
+  inset: 0;
+  display: block;
+  content: "";
+  z-index: 0;
+}
+
+.lb-content { position: relative; z-index: 1; }
+
+.lb-close::after {
+  content: "\00d7"; /* × */
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  border-radius: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.lb-close:hover::after { background: rgba(0,0,0,0.6); }
+
+.gallery-item img { cursor: default; }
