@@ -4,17 +4,17 @@ html {
 }
 
 @font-face {
-  font-family: 'Orbitron Police';
-  src: url('/orbitron/Orbitron-Regular.ttf') format('truetype');
+  font-family: "Orbitron Police";
+  src: url("/orbitron/Orbitron-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Oxygen Police';
-  src: url('/oxygen-mono/OxygenMono-Regular.ttf') format('truetype');
+  font-family: "Oxygen Police";
+  src: url("/oxygen-mono/OxygenMono-Regular.ttf") format("truetype");
 }
 
 body {
-  font-family: 'Oxygen Police', sans-serif;
+  font-family: "Oxygen Police", sans-serif;
   margin: 0;
   min-height: 100vh;
   background: linear-gradient(to bottom, #cde4f5, #f8d7e3);
@@ -215,7 +215,7 @@ body.with-social-buttons nav.container ul li a:hover {
 
 .video-container {
   max-width: 100% !important;
-  width: 100% !important; /* Match the overlay size inside .video-wrapper */
+  width: 100% !important;
   margin: 0 auto !important;
   border-radius: 1.2vh !important;
   overflow: hidden;
@@ -223,8 +223,10 @@ body.with-social-buttons nav.container ul li a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
+/* Empêche l'iframe de capturer les clics */
 .video-container iframe {
   border-radius: 1vh;
+  pointer-events: none;
 }
 
 .button {
@@ -294,7 +296,7 @@ body.with-social-buttons nav.container ul li a:hover {
 }
 
 .social-buttons-container {
-  font-family: 'Orbitron Police', sans-serif;
+  font-family: "Orbitron Police", sans-serif;
   position: fixed;
   left: 0;
   top: 0;
@@ -623,6 +625,7 @@ body.with-social-buttons nav.container ul li a:hover {
   margin: 0 auto;
 }
 
+/* L'overlay capture maintenant tous les clics de manière fiable */
 .video-overlay {
   position: absolute;
   top: 0;
@@ -638,39 +641,11 @@ body.with-social-buttons nav.container ul li a:hover {
   z-index: 10;
   cursor: pointer;
   border-radius: 12px;
+  pointer-events: auto;
 }
 
 .video-overlay:hover {
   background: rgba(0, 0, 0, 0.3);
-}
-
-.play-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-}
-
-.video-overlay:hover .play-button {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.play-button span {
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  background: rgba(255, 0, 0, 0.9);
-  padding: 8px 20px;
-  border-radius: 25px;
-}
-
-.play-button svg {
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 @media (max-width: 768px) {
@@ -678,31 +653,11 @@ body.with-social-buttons nav.container ul li a:hover {
     max-width: 90vw;
     width: 90%;
   }
-
-  .play-button span {
-    font-size: 1rem;
-    padding: 6px 16px;
-  }
-
-  .play-button svg {
-    width: 60px;
-    height: 60px;
-  }
 }
 
 @media (max-width: 480px) {
   .video-wrapper {
     max-width: 95vw;
     width: 95%;
-  }
-
-  .play-button span {
-    font-size: 0.9rem;
-    padding: 5px 14px;
-  }
-
-  .play-button svg {
-    width: 50px;
-    height: 50px;
   }
 }
