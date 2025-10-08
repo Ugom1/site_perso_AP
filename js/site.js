@@ -50,19 +50,38 @@ async function getLatestVideoUrl() {
   return "https://www.youtube.com/@ap_r0se473/videos"
 }
 
-// Update overlay href when page loads
+let latestVideoUrl = null
+let isVideoUrlReady = false
+
 window.addEventListener("DOMContentLoaded", async () => {
   const overlay = document.getElementById("videoOverlay")
   if (overlay) {
-    overlay.style.pointerEvents = "none"
+    // Prevent any default navigation
+    overlay.addEventListener("click", (e) => {
+      e.preventDefault()
+
+      if (isVideoUrlReady && latestVideoUrl) {
+        console.log("[v0] Redirecting to:", latestVideoUrl)
+        window.location.href = latestVideoUrl
+      } else {
+        console.log("[v0] Video URL not ready yet, please wait...")
+      }
+    })
+
+    // Visual feedback while loading
     overlay.style.cursor = "wait"
+    overlay.style.opacity = "0.7"
 
     console.log("[v0] Fetching latest video URL...")
-    const latestVideoUrl = await getLatestVideoUrl()
-    console.log("[v0] Setting overlay href to:", latestVideoUrl)
-    overlay.href = latestVideoUrl
+    latestVideoUrl = await getLatestVideoUrl()
+    isVideoUrlReady = true
+    console.log("[v0] Video URL ready:", latestVideoUrl)
 
-    overlay.style.pointerEvents = "auto"
+    // Re-enable visual feedback
     overlay.style.cursor = "pointer"
+    overlay.style.opacity = "1"
+
+    // Also update href as fallback
+    overlay.href = latestVideoUrl
   }
 })
