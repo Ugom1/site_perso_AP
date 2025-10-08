@@ -15,7 +15,6 @@ async function getLatestVideoUrl() {
     const parser = new DOMParser()
     const xmlDoc = parser.parseFromString(xmlText, "text/xml")
 
-    // Method 1: Try to get the link element from the first entry
     const firstEntry = xmlDoc.querySelector("entry")
     if (firstEntry) {
       const linkElement = firstEntry.querySelector("link")
@@ -32,7 +31,6 @@ async function getLatestVideoUrl() {
         }
       }
 
-      // Method 2: Try yt:videoId element
       const videoIdElement = firstEntry.querySelector("videoId")
       if (videoIdElement) {
         const latestVideoId = videoIdElement.textContent
@@ -46,8 +44,7 @@ async function getLatestVideoUrl() {
     console.error("[v0] Error fetching latest video:", error)
   }
 
-  // Fallback to channel videos page
-  return "https://www.youtube.com/@ap_r0se473/videos"
+  return null
 }
 
 let latestVideoUrl = null
@@ -56,19 +53,18 @@ let isVideoUrlReady = false
 window.addEventListener("DOMContentLoaded", async () => {
   const overlay = document.getElementById("videoOverlay")
   if (overlay) {
-    // Prevent any default navigation
     overlay.addEventListener("click", (e) => {
       e.preventDefault()
 
-      if (isVideoUrlReady && latestVideoUrl) {
+      if (isVideoUrlReady && latestVideoUrl && latestVideoUrl.includes("watch?v=")) {
         console.log("[v0] Redirecting to:", latestVideoUrl)
         window.location.href = latestVideoUrl
       } else {
-        console.log("[v0] Video URL not ready yet, please wait...")
+        console.log("[v0] Video URL not ready or invalid, cannot redirect")
+        alert("Impossible de charger la dernière vidéo. Veuillez réessayer.")
       }
     })
 
-    // Visual feedback while loading
     overlay.style.cursor = "wait"
     overlay.style.opacity = "0.7"
 
@@ -77,11 +73,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     isVideoUrlReady = true
     console.log("[v0] Video URL ready:", latestVideoUrl)
 
-    // Re-enable visual feedback
     overlay.style.cursor = "pointer"
     overlay.style.opacity = "1"
 
-    // Also update href as fallback
-    overlay.href = latestVideoUrl
+    if (latestVideoUrl && latestVideoUrl.includes("watch?v=")) {
+      overlay.href = latestVideoUrl
+    }
   }
 })
