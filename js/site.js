@@ -78,22 +78,23 @@ window.addEventListener("DOMContentLoaded", async () => {
       if (latestVideoUrl && latestVideoUrl.includes("watch?v=")) {
         console.log("[v0] Redirecting to:", latestVideoUrl)
 
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
 
-        if (isMobile) {
+        if (isIOS) {
           // Extract video ID
           const videoIdMatch = latestVideoUrl.match(/watch\?v=([^&]+)/)
           if (videoIdMatch) {
             const videoId = videoIdMatch[1]
-            // Open YouTube app directly with custom scheme
+            // Open YouTube app directly with custom scheme on iOS
             const youtubeAppUrl = `youtube://watch?v=${videoId}`
-            console.log("[v0] Opening YouTube app:", youtubeAppUrl)
+            console.log("[v0] Opening YouTube app on iOS:", youtubeAppUrl)
             window.location.href = youtubeAppUrl
             return
           }
         }
 
-        // Desktop: use regular URL
+        // Android and Desktop: use regular HTTPS URL
+        // Android will automatically prompt to open YouTube app
         window.location.href = latestVideoUrl
       } else {
         console.log("[v0] Video URL not available, cannot redirect")
