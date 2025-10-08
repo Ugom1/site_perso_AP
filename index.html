@@ -24,12 +24,11 @@
             <div class="mt-20">
                 <h2>Dernière Vidéo</h2>
                 <div class="video-wrapper">
-                    <!-- Updated to play the playlist directly, starting with the latest video -->
                     <div class="video-container" style="position:relative;width:100%;height:0;padding-bottom:56.25%;border-radius:12px;overflow:hidden;border:2px solid #ffd1dc;box-shadow:0 4px 10px rgba(0,0,0,.1)">
                         <iframe src="https://www.youtube.com/embed/videoseries?list=UUdyVYz4wRqj14bV_KLQaMQA" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none"></iframe>
                     </div>
-                    <!-- Using simple playlist URL that works on all devices (iOS and Android) -->
-                    <a href="https://www.youtube.com/playlist?list=UUdyVYz4wRqj14bV_KLQaMQA" target="_blank" class="video-overlay" id="videoOverlay" title="Voir sur YouTube">
+                    <!-- Using watch format with index=1 to play the first (latest) video -->
+                    <a href="https://www.youtube.com/watch?list=UUdyVYz4wRqj14bV_KLQaMQA&index=1" target="_blank" class="video-overlay" id="videoOverlay" title="Voir sur YouTube">
                     </a>
                 </div>
             </div>
