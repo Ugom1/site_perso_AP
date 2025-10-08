@@ -29,8 +29,8 @@ async function getLatestVideoUrl(retryCount = 0, maxRetries = 3) {
         const videoIdMatch = href.match(/watch\?v=([^&]+)/)
         if (videoIdMatch) {
           const latestVideoId = videoIdMatch[1]
-            console.log("[v0] Extracted video ID:", latestVideoId)
-            return `https://www.youtube.com/watch?v=${latestVideoId}`
+          console.log("[v0] Extracted video ID:", latestVideoId)
+          return `https://www.youtube.com/watch?v=${latestVideoId}`
         }
       }
 
@@ -59,20 +59,27 @@ async function getLatestVideoUrl(retryCount = 0, maxRetries = 3) {
 }
 
 let latestVideoUrl = null
-let isVideoUrlReady = false
+let videoUrlPromise = null
 
 window.addEventListener("DOMContentLoaded", async () => {
   const overlay = document.getElementById("videoOverlay")
   if (overlay) {
     // Prevent any default navigation
-    overlay.addEventListener("click", (e) => {
+    overlay.addEventListener("click", async (e) => {
       e.preventDefault()
 
-      if (isVideoUrlReady && latestVideoUrl && latestVideoUrl.includes("watch?v=")) {
+      if (videoUrlPromise) {
+        console.log("[v0] Waiting for video URL to load...")
+        overlay.style.cursor = "wait"
+        await videoUrlPromise
+        overlay.style.cursor = "pointer"
+      }
+
+      if (latestVideoUrl && latestVideoUrl.includes("watch?v=")) {
         console.log("[v0] Redirecting to:", latestVideoUrl)
         window.location.href = latestVideoUrl
       } else {
-        console.log("[v0] Video URL not ready or invalid, cannot redirect")
+        console.log("[v0] Video URL not available, cannot redirect")
         alert("Impossible de charger la dernière vidéo. Veuillez réessayer.")
       }
     })
@@ -82,8 +89,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     overlay.style.opacity = "0.7"
 
     console.log("[v0] Fetching latest video URL...")
-    latestVideoUrl = await getLatestVideoUrl()
-    isVideoUrlReady = true
+    videoUrlPromise = getLatestVideoUrl()
+    latestVideoUrl = await videoUrlPromise
+    videoUrlPromise = null
     console.log("[v0] Video URL ready:", latestVideoUrl)
 
     // Re-enable visual feedback
