@@ -1,29 +1,15 @@
-async function getLatestVideoUrl() {
-    const channelId = 'UCdyVYz4wRqj14bV_KLQaMQA';
-    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
-    
-    try {
-        const response = await fetch(proxyUrl);
-        const xmlText = await response.text();
-        
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-        const videoId = xmlDoc.querySelector('entry yt\\:videoId, entry videoId');
-        
-        if (videoId) {
-            const latestVideoId = videoId.textContent;
-            return `https://www.youtube.com/watch?v=${latestVideoId}`;
-        }
-    } catch (error) {
-        console.error('[v0] Error fetching latest video:', error);
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("videoOverlay")
+    if (overlay) {
+      const baseUrl = "https://www.youtube.com/embed/videoseries?list=UUdyVYz4wRqj14bV_KLQaMQA&autoplay=1"
+  
+      // Add timestamp on page load to avoid cache
+      overlay.href = `${baseUrl}&t=${Date.now()}`
+  
+      // Update timestamp on each click for fresh load
+      overlay.addEventListener("click", () => {
+        overlay.href = `${baseUrl}&t=${Date.now()}`
+      })
     }
-    
-    return 'https://www.youtube.com/@ap_r0se473/videos';
-}
-
-window.addEventListener('DOMContentLoaded', async () => {
-    const overlay = document.getElementById('videoOverlay');
-    const latestVideoUrl = await getLatestVideoUrl();
-    overlay.href = latestVideoUrl;
-});
+  })
+  
