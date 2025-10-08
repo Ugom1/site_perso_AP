@@ -77,6 +77,30 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       if (latestVideoUrl && latestVideoUrl.includes("watch?v=")) {
         console.log("[v0] Redirecting to:", latestVideoUrl)
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+        if (isMobile) {
+          // Extract video ID
+          const videoIdMatch = latestVideoUrl.match(/watch\?v=([^&]+)/)
+          if (videoIdMatch) {
+            const videoId = videoIdMatch[1]
+            // Try to open YouTube app with custom scheme
+            const youtubeAppUrl = `youtube://watch?v=${videoId}`
+            console.log("[v0] Attempting to open YouTube app:", youtubeAppUrl)
+
+            // Try app first, fallback to web after short delay
+            window.location.href = youtubeAppUrl
+
+            // Fallback to web URL if app doesn't open
+            setTimeout(() => {
+              window.location.href = latestVideoUrl
+            }, 500)
+            return
+          }
+        }
+
+        // Desktop or fallback: use regular URL
         window.location.href = latestVideoUrl
       } else {
         console.log("[v0] Video URL not available, cannot redirect")
