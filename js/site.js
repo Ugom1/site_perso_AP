@@ -85,22 +85,15 @@ window.addEventListener("DOMContentLoaded", async () => {
           const videoIdMatch = latestVideoUrl.match(/watch\?v=([^&]+)/)
           if (videoIdMatch) {
             const videoId = videoIdMatch[1]
-            // Try to open YouTube app with custom scheme
+            // Open YouTube app directly with custom scheme
             const youtubeAppUrl = `youtube://watch?v=${videoId}`
-            console.log("[v0] Attempting to open YouTube app:", youtubeAppUrl)
-
-            // Try app first, fallback to web after short delay
+            console.log("[v0] Opening YouTube app:", youtubeAppUrl)
             window.location.href = youtubeAppUrl
-
-            // Fallback to web URL if app doesn't open
-            setTimeout(() => {
-              window.location.href = latestVideoUrl
-            }, 500)
             return
           }
         }
 
-        // Desktop or fallback: use regular URL
+        // Desktop: use regular URL
         window.location.href = latestVideoUrl
       } else {
         console.log("[v0] Video URL not available, cannot redirect")
