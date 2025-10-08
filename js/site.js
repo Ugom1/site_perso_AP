@@ -17,7 +17,6 @@ async function getLatestVideoUrl(retryCount = 0, maxRetries = 3) {
     const parser = new DOMParser()
     const xmlDoc = parser.parseFromString(xmlText, "text/xml")
 
-    // Method 1: Try to get the link element from the first entry
     const firstEntry = xmlDoc.querySelector("entry")
     if (firstEntry) {
       const linkElement = firstEntry.querySelector("link")
@@ -25,7 +24,6 @@ async function getLatestVideoUrl(retryCount = 0, maxRetries = 3) {
         const href = linkElement.getAttribute("href")
         console.log("[v0] Found link:", href)
 
-        // Extract video ID from the URL
         const videoIdMatch = href.match(/watch\?v=([^&]+)/)
         if (videoIdMatch) {
           const latestVideoId = videoIdMatch[1]
@@ -34,7 +32,6 @@ async function getLatestVideoUrl(retryCount = 0, maxRetries = 3) {
         }
       }
 
-      // Method 2: Try yt:videoId element
       const videoIdElement = firstEntry.querySelector("videoId")
       if (videoIdElement) {
         const latestVideoId = videoIdElement.textContent
@@ -49,7 +46,7 @@ async function getLatestVideoUrl(retryCount = 0, maxRetries = 3) {
   }
 
   if (retryCount < maxRetries) {
-    const delay = Math.min(1000 * Math.pow(2, retryCount), 3000) // Exponential backoff: 1s, 2s, 3s
+    const delay = Math.min(1000 * Math.pow(2, retryCount), 3000)
     console.log(`[v0] Retrying in ${delay}ms...`)
     await new Promise((resolve) => setTimeout(resolve, delay))
     return getLatestVideoUrl(retryCount + 1, maxRetries)
@@ -64,7 +61,6 @@ let videoUrlPromise = null
 window.addEventListener("DOMContentLoaded", async () => {
   const overlay = document.getElementById("videoOverlay")
   if (overlay) {
-    // Prevent any default navigation
     overlay.addEventListener("click", async (e) => {
       e.preventDefault()
 
@@ -81,11 +77,9 @@ window.addEventListener("DOMContentLoaded", async () => {
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
 
         if (isIOS) {
-          // Extract video ID
           const videoIdMatch = latestVideoUrl.match(/watch\?v=([^&]+)/)
           if (videoIdMatch) {
             const videoId = videoIdMatch[1]
-            // Open YouTube app directly with custom scheme on iOS
             const youtubeAppUrl = `youtube://watch?v=${videoId}`
             console.log("[v0] Opening YouTube app on iOS:", youtubeAppUrl)
             window.location.href = youtubeAppUrl
@@ -93,8 +87,6 @@ window.addEventListener("DOMContentLoaded", async () => {
           }
         }
 
-        // Android and Desktop: use regular HTTPS URL
-        // Android will automatically prompt to open YouTube app
         window.location.href = latestVideoUrl
       } else {
         console.log("[v0] Video URL not available, cannot redirect")
@@ -102,7 +94,6 @@ window.addEventListener("DOMContentLoaded", async () => {
       }
     })
 
-    // Visual feedback while loading
     overlay.style.cursor = "wait"
     overlay.style.opacity = "0.7"
 
@@ -112,7 +103,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     videoUrlPromise = null
     console.log("[v0] Video URL ready:", latestVideoUrl)
 
-    // Re-enable visual feedback
     overlay.style.cursor = "pointer"
     overlay.style.opacity = "1"
 
