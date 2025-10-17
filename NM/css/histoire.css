@@ -109,3 +109,26 @@ footer {
   border-top: 2px solid #add8e6;
   color: #555;
 }
+
+
+/* Image sous le texte */
+.story-section.below {
+  flex-direction: column;            /* empile en colonne */
+}
+.story-section.below > div { order: 1; }  /* texte en haut   */
+.story-section.below > img { order: 2; }  /* image en bas    */
+
+/* On RE-force le comportement même sur desktop */
+@media (min-width: 768px) {
+  .story-section.below {
+    flex-direction: column !important; /* ne passe pas en row */
+    text-align: center;                /* optionnel : centrage */
+    align-items: center;
+  }
+  .story-section.below div {
+    padding: 0 0 10px 0;               /* un petit espace au-dessus de l’image */
+  }
+  .story-section.below img {
+    max-width: 100%;                   /* l’image prend la largeur de la carte */
+  }
+}

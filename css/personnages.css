@@ -615,3 +615,22 @@ body.with-social-buttons nav ul {
     width: 100%;
   }
 }
+
+.badge-epitaphe{
+  background:#E5D7FF;           /* lavande */
+  color:#2A1340;                 /* violet foncé lisible */
+  padding:6px 12px;
+  border-radius:12px;
+  font-weight:600;
+  box-shadow:0 0 0 2px rgba(0,0,0,.05) inset;
+}
+
+.card p{ line-height:1.5; }
+.badge-epitaphe{ display:inline-block; margin-top:8px; }
+
+
+.badge-epitaphe:hover{
+  box-shadow:0 0 0 3px rgba(191,232,243,.35) inset, 0 0 18px rgba(191,232,243,.35);
+  transform:translateY(-1px);
+  transition:all .2s ease;
+}
