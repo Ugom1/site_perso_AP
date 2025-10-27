@@ -161,6 +161,12 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 1024px) {
     header {
         padding: 12px 0;

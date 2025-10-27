@@ -246,6 +246,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
     .container {
         padding: 14px;
     }

@@ -150,6 +150,12 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero {
         padding: 56px 18px;
