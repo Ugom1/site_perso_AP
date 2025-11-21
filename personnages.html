@@ -4,93 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png"/>
-    <title>AP - Personnages RP</title>
-    <link rel="stylesheet" href="css/personnages.css">
+    <title>AP_R0SE - Personnages RP</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="with-social-buttons">
-    <header>
-        <nav class="container">
-            <ul>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/">AP_R0SE</a>
+            </div>
+            <ul class="nav-links">
                 <li><a href="/">Accueil</a></li>
-                <li><a href="/personnages">Personnages</a></li>
+                <li><a href="/personnages" class="active">Personnages</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="hero">
-            <h1>Personnages RP</h1>
-            <p>Découvrez l'univers de chaque personnage</p>
-        </section>
-
-        <section class="mt-20">
-            <div class="characters-grid">
-                <a class="character-card" href="NM/presentation">
-                    <h3>Nouveau-Mexique</h3>
-                    <p>Une jeune fille pleine de vie et d'aventures à Los Santos. Découvrez son histoire fascinante et ses relations complexes.</p>
-                    <span class="badge-epitaphe">✦ Son dernier souffle s’est allumé dans le ciel…</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="mt-20">
-            <div class="characters-grid">
-                <a class="character-card" href="JJ/presentation">
-                    <h3>Jannelle Becket “J-J“</h3>
-                    <p>Un groupe assez particulier qui se sont mis dans une galère ! Découvrez l'histoire de J-J pour savoir comment ils ont réussi à s'en sortir.</p>
-                    <span class="character-status">Actif</span>
-                </a>
-            </div>
-        </section>
-
-        <div class="mobile-social-buttons">
-            <a href="https://www.tiktok.com/@ap_r0see?lang=fr" class="mobile-social-button tiktok" target="_blank">
-                <img src="https://www.tiktok.com/favicon.ico" alt="TikTok" onerror="this.style.display='none'">
-            </a>
-            <a href="https://discord.gg/DH5KA4frNN" class="mobile-social-button discord" target="_blank">
-                <img src="img/discord.png" alt="Discord">
-            </a>
-            <a href="https://www.youtube.com/channel/UCdyVYz4wRqj14bV_KLQaMQA" class="mobile-social-button youtube" target="_blank">
-                <svg width="24" height="24" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="white"/>
-                    <path d="M19 10L11.5 5.75V14.25L19 10Z" fill="#FF0000"/>
-                </svg>
-            </a>
-            <a href="https://www.twitch.tv/ap_r0se" class="mobile-social-button twitch" target="_blank">
-                <img src="https://www.twitch.tv/favicon.ico" alt="Twitch" onerror="this.style.display='none'">
-            </a>
-            <a href="https://kick.com/ap-rose" class="mobile-social-button kick" target="_blank">
-                <img src="https://kick.com/favicon.ico" alt="Kick" onerror="this.style.display='none'">
-            </a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </nav>
 
-        <section class="container">
-            <div class="social-buttons-container">
-                <a href="https://www.tiktok.com/@ap_r0see?lang=fr" class="social-button tiktok" target="_blank">
-                    <img src="https://www.tiktok.com/favicon.ico" alt="TikTok" onerror="this.style.display='none'">
-                    <span>TikTok</span>
-                </a>
-                <a href="https://discord.gg/DH5KA4frNN" class="social-button discord" target="_blank">
-                    <img src="img/discord.png" alt="Discord" class="discord-icon">
-                    <span>Discord</span>
-                </a>
-                <a href="https://www.youtube.com/channel/UCdyVYz4wRqj14bV_KLQaMQA" class="social-button youtube" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"/>
-                        <path d="M19 10L11.5 5.75V14.25L19 10Z" fill="white"/>
-                    </svg>
-                    <span>YouTube</span>
-                </a>
-                <a href="https://www.twitch.tv/ap_r0se" class="social-button twitch" target="_blank">
-                    <img src="https://www.twitch.tv/favicon.ico" alt="Twitch" onerror="this.style.display='none'">
-                    <span>Twitch</span>
-                </a>
-                <a href="https://kick.com/ap-rose" class="social-button kick" target="_blank">
-                    <img src="https://kick.com/favicon.ico" alt="Kick" onerror="this.style.display='none'">
-                    <span>Kick</span>
-                </a>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/">Accueil</a>
+        <a href="/personnages">Personnages</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero alt-hero">
+            <div class="hero-content">
+                <h1>Personnages RP</h1>
+                <p class="subtitle">Découvrez l'univers de chaque personnage</p>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section class="characters-section">
+            <div class="container">
+                <div class="characters-grid">
+                    <div class="character-card">
+                        <div class="character-header">
+                            <h3>Nouveau-Mexique</h3>
+                            <span class="badge badge-deceased">✦ Décédé</span>
+                        </div>
+                        <p>Une jeune fille pleine de vie et d'aventures à Los Santos. Découvrez son histoire fascinante et ses relations complexes.</p>
+                        <p class="epitaphe">"Son dernier souffle s'est allumé dans le ciel…"</p>
+                        <a href="NM/presentation" class="btn btn-small">En savoir plus</a>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="character-header">
+                            <h3>Jannelle Becket</h3>
+                            <span class="badge badge-active">● Actif</span>
+                        </div>
+                        <p>Un groupe assez particulier qui se sont mis dans une galère ! Découvrez l'histoire de J-J pour savoir comment ils ont réussi à s'en sortir.</p>
+                        <a href="JJ/presentation" class="btn btn-small">En savoir plus</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
