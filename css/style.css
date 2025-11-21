@@ -450,7 +450,6 @@ body::before {
   background: #000; /* fond noir derrière la vidéo */
 }
 
-/* On garde l'iframe uniquement en arrière-plan, totalement invisible */
 .video-container iframe {
   position: absolute;
   inset: 0;
@@ -458,22 +457,33 @@ body::before {
   height: 100%;
   border: none;
   border-radius: var(--radius-xl);
-  pointer-events: none;
+  pointer-events: none;      /* on ne clique PAS dans l’iframe */
   z-index: 1;
-  opacity: 0; /* plus de bouton play blanc */
 }
 
-/* Poster visible au-dessus de l'iframe (fond personnalisé ou miniature) */
-.video-poster {
+.video-container.is-loading iframe {
+  opacity: 0;
+}
+
+.video-container.is-ready iframe {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.video-container iframe {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.25), rgba(15, 15, 15, 0.9));
-  background-size: cover;
-  background-position: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
   border-radius: var(--radius-xl);
-  transition: opacity 0.4s ease, filter 0.4s ease;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
+}
+
+.video-poster {
+  display: none;
 }
 
 .video-poster::after {
